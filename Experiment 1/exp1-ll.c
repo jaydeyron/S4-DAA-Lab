@@ -7,7 +7,7 @@ struct node{
 		struct node* next;
 	};
 
-struct node *head=NULL,*tail=NULL,*temp=NULL;
+struct node *head=NULL,*tail=NULL,*temp=NULL,*temp2=NULL;
 
 void insertll(int x){
 	if(head==NULL){
@@ -27,14 +27,32 @@ void insertll(int x){
 void deletell(int del){
 	temp=head;
 	while(temp!=NULL){
-		if((temp->next)->data)==del){
-			
+		if((temp->data)==del){
+			head=temp->next;
+            temp->next=NULL;
+            free(temp);
+            break;
 		}
+        else if(temp->next->data==del && temp->next==tail){
+            temp2=temp->next;
+            temp->next=NULL;
+            free(temp2);
+
+        }
+        else if(temp->next->data==del){
+            temp2=temp->next;
+            temp->next=temp->next->next;
+            free(temp2);
+            break;
+        }
+        else{
+            temp=temp->next;
+        }
 	}
 }
 
 void largell(int del){
-	mx=__INT_MAX__;
+	int mx=__INT_MAX__;
 	temp=head;
 	while(temp!=NULL){
 		if((temp->data)>del && (temp->data)<mx){
@@ -42,7 +60,7 @@ void largell(int del){
 		}
 		temp=temp->next;
 	}
-	(mx==__INT_MAX__)?printf("%d was the largest number in the list\n",del):printf("\nThe next largest number is:  %d\n",mx);
+	(mx==__INT_MAX__)?printf("\n\n%d was the largest number in the list\n",del):printf("\n\nThe next largest number is:  %d\n",mx);
 }
 
 void printll(){
@@ -57,6 +75,7 @@ int main(){
 	int n,x,del;
 	printf("Enter number of elements to insert:\t");
 	scanf("%d",&n);
+    printf("Enter the numbers:  ");
 	for(int i=0;i<n;i++){
 		scanf("%d",&x);
 		insertll(x);
@@ -64,7 +83,8 @@ int main(){
 	printf("Enter element to delete:  ");
 	scanf("%d",&del);
 	deletell(del);
+    printf("Updated list after deletion:  ");
+    printll();
 	largell(del);
-	printll();
 	return 0;
 }
