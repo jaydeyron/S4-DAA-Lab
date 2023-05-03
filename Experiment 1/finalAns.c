@@ -105,8 +105,8 @@ int main(){
 		a[i]=rand()%(101);
 		insertll(a[i]);
 	}
-	pos=rand()%(n);
-	int temp=a[pos];
+	pos=1;
+	int temp=a[pos];		//worst-case for array
 	
 	//printf("Array before:\t");printarr(a,n);
 	//printf("Element to be deleted:\t%d\n",temp);
@@ -119,6 +119,7 @@ int main(){
 	nextel(temp,n,a);
 	l2=clock();
 	tot2=((double)l2-l1)/CLOCKS_PER_SEC;
+	temp=a[n-1];		//worst-case for linked list
 	dd1=clock();
 	deletell(temp);
 	dd2=clock();
