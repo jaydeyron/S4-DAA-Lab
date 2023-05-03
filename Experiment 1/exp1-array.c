@@ -25,11 +25,14 @@ int main(){
 	int n;
 	printf("Enter the number of elements:\t");
 	scanf("%d",&n);
-	int a[n],x,pos;
+	int a[n],x,pos,t;
 	printf("Enter the elements:\t");
 	for(int i=0;i<n;i++){scanf("%d",&x);a[i]=x;}
-	printf("Enter the position of the element to remove:\t");
-	scanf("%d",&pos);
+	printf("Enter the element to remove:\t");
+	scanf("%d",&t);
+	for(int i=0;i<n;i++){
+		if(a[i]==t){pos=i;break;}
+	}
 	int temp=a[pos];
 	if(pos>n-1){printf("Index out of bounds!");}
 	else{removearr(a,pos,n);
