@@ -37,6 +37,7 @@ void deletell(int del){
             temp2=temp->next;
             temp->next=NULL;
             free(temp2);
+            break;
 
         }
         else if(temp->next->data==del){
