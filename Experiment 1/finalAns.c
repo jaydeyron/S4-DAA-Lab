@@ -119,7 +119,7 @@ int main(){
 	nextel(temp,n,a);
 	l2=clock();
 	tot2=((double)l2-l1)/CLOCKS_PER_SEC;
-	temp=a[n-1];		//worst-case for linked list
+	//temp=a[n-1];		//worst-case for linked list
 	dd1=clock();
 	deletell(temp);
 	dd2=clock();
