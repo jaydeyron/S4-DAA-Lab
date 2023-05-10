@@ -105,22 +105,22 @@ int main(){
 		a[i]=rand()%(101);
 		insertll(a[i]);
 	}
-	pos=1;
+	pos=0;
 	int temp=a[pos];		//worst-case for array
 	
-	//printf("Array before:\t");printarr(a,n);
-	//printf("Element to be deleted:\t%d\n",temp);
+	printf("Array before:\t");printarr(a,n+1);
+	printf("Element to be deleted:\t%d\n",temp);
 	d1=clock();
 	removearr(a,pos,n);
 	d2=clock();
 	tot1=((double)d2-d1)/CLOCKS_PER_SEC;
-	//printf("Array after:\t");printarr(a,n-1);
+	printf("Array after:\t");printarr(a,n);
 	l1=clock();
 	nextel(temp,n,a);
 	l2=clock();
 	tot2=((double)l2-l1)/CLOCKS_PER_SEC;
-	a[n-1]=temp;
-    temp=a[n-1];		//worst-case for linked list
+	//a[n-1]=temp;
+    //temp=a[n-1];		//worst-case for linked list
 	dd1=clock();
 	deletell(temp);
 	dd2=clock();
