@@ -69,7 +69,7 @@ int main(){
  	//printf("After quick sort:\t");	printarr(b,n);
  	printf("\nTime taken for quick sort:\t%.10lf\n",tot2);
  	FILE *fp;
- 	fp=fopen("/home/student/fl.txt","a");
+ 	fp=fopen("/home/student/fl.dat","a");
  	fprintf(fp,"%ld\t%.10lf\t%.10lf\n",n,tot1,tot2);
  	//fprintf(fp,"%.10lf\n",tot2);
  	fclose(fp);
