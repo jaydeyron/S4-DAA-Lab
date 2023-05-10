@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<string.h>
 void swap(long *a,long *b){
 	long temp=*b;*b=*a;*a=temp;
 }
@@ -67,5 +68,11 @@ int main(){
   	tot2=((double)q2-q1)/CLOCKS_PER_SEC;
  	//printf("After quick sort:\t");	printarr(b,n);
  	printf("\nTime taken for quick sort:\t%.10lf\n",tot2);
+ 	FILE *fp;
+ 	fp=fopen("/home/student/fl.txt","a");
+ 	fprintf(fp,"%ld\t%.10lf\t%.10lf\n",n,tot1,tot2);
+ 	//fprintf(fp,"%.10lf\n",tot2);
+ 	fclose(fp);
+
 	return 0;
 }
