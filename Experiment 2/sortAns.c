@@ -60,17 +60,17 @@ int main(){
 	bubblesort(a,n);
 	b2=clock();
 	tot1=((double)b2-b1)/CLOCKS_PER_SEC;
- 	printf("\nTime taken for bubble sort:\t%.10lf\n",tot1);
+ 	printf("\nTime taken for bubble sort:\t%lf\n",tot1);
 	//printf("After bubble sort:\t"); printarr(a,n);
 	q1=clock();
   	quicksort(b,0,n-1);
   	q2=clock();
   	tot2=((double)q2-q1)/CLOCKS_PER_SEC;
  	//printf("After quick sort:\t");	printarr(b,n);
- 	printf("\nTime taken for quick sort:\t%.10lf\n",tot2);
+ 	printf("\nTime taken for quick sort:\t%lf\n",tot2);
  	FILE *fp;
  	fp=fopen("/home/student/fl.dat","a");
- 	fprintf(fp,"%ld\t%.10lf\t%.10lf\n",n,tot1,tot2);
+ 	fprintf(fp,"%ld\t%lf\t%lf\n",n,tot1,tot2);
  	//fprintf(fp,"%.10lf\n",tot2);
  	fclose(fp);
 
