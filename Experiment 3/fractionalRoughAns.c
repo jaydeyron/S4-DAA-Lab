@@ -53,9 +53,10 @@ void knapsack(long a[],long b[],double c[],long w,long n){
 	printf("The maximum profit is:\t%lf\n",sump);
 }
 int main(){
-	srand(time(0));
+	/*srand(time(0));
 	clock_t b1,b2,q1,q2;
 	double tot1,tot2;
+	*/
 	long n;
 	printf("Enter size of array:\t");	scanf("%ld",&n);
 	long a[n],b[n];
