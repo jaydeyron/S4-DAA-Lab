@@ -50,7 +50,7 @@ int main(){
 	long a[n],b[n];
 	//printf("Enter array:\t");
 	for(int i=0;i<n;i++){
-		a[i]=rand()%(101);
+		a[i]=rand()%(1001);
 		b[i]=a[i];
 		//scanf("%d",&a[i]);
 		//b[i]=a[i];
