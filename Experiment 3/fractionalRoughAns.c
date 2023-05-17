@@ -75,8 +75,8 @@ int main(){
 		c[i]=(double)a[i]/(double)b[i];
 	}
 	//long w=rand()%100;
-	long w;	scanf("%ld",&w);
-	printf("Array of weights:\t");printarr(b,n);
+	long w;	printf("\nEnter max weight:\t");scanf("%ld",&w);
+	printf("\nArray of weights:\t");printarr(b,n);
 	printf("Array of prices:\t");printarr(a,n);
 	printf("Max weight:\t%ld\n",w);
 	bubblesort(c,a,b,n);
