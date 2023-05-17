@@ -61,11 +61,15 @@ int main(){
 	long a[n],b[n];
 	double c[n];
 	//printf("Enter array:\t");
+	printf("Enter profits array:\n");
 	for(int i=0;i<n;i++){
 		//a[i]=rand()%(101);
 		//b[i]=rand()%(10);
 		//if(b[i]==0){b[i]++;}
 		scanf("%ld",&a[i]);
+	}
+	printf("Enter weights array:\n");
+	for(int i=0;i<n;i++){
 		scanf("%ld",&b[i]);
 		c[i]=(double)a[i]/(double)b[i];
 	}
