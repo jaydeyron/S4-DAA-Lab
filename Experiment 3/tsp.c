@@ -22,7 +22,7 @@ int knap(int st)
 	for(int i=0;i<n;i++){
 		if(temp[i]==0){visited=0; break;}
 	}
-	if(visited){	
+	if(visited){
 		return m[st][0];
 	}
 	for(int i=0;i<n;i++){
@@ -30,6 +30,9 @@ int knap(int st)
 		temp[i]=1;
 		int newcost=m[st][i]+ knap(i);
 		temp[i]=0;
+		if(mincost>newcost){
+			path[i]=st;
+		}
 		mincost=min(newcost,mincost);
 	}
 	return mincost;
@@ -46,10 +49,11 @@ void getMat(){
 
 void printPath() {
     printf("Path: ");
+    path[n-1]=1;
     for (int i = 0; i < n; i++) {
         printf("%d-->", path[i]);
     }
-    printf("%d\n",1);
+    printf("%d\n\n",path[n-1]);
 }
 
 void printMat(){
@@ -82,6 +86,6 @@ int main(){
     int st=0;temp[st]=1;
     int mincost=knap(st);
     printf("Minimum cost:\t%d\n",mincost);
-    //printPath();
+    printPath();
     return 0;
 }
