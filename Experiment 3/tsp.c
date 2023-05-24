@@ -30,7 +30,6 @@ int knap(int st)
 		temp[i]=1;
 		int newcost=m[st][i]+ knap(i);
 		temp[i]=0;
-		path[i]=n-i+1;
 		mincost=min(newcost,mincost);
 	}
 	return mincost;
@@ -83,6 +82,6 @@ int main(){
     int st=0;temp[st]=1;
     int mincost=knap(st);
     printf("Minimum cost:\t%d\n",mincost);
-    printPath();
+    //printPath();
     return 0;
 }
