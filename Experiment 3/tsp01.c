@@ -6,17 +6,16 @@
 
 #define intmax __INT_MAX__
 
-//global variables
-int **m,*temp,*path;
-int n;
+//global variables                      // Not fully dynamic, uses iteration so does not go through
+int **m,*temp,*path;                    // the right branches of binary tree, only goes through paths
+int n;                                  // in order. Also works only for complete graphs and not for incomplete graphs
 char s=65;
-
 
 //functions
 int min(int a,int b){   return (a<b)?a:b;}
 int max(int a,int b){   return (a>b)?a:b;}
 
-int knap(int st)
+int tsp(int st)
 {
 	int visited=1,mincost=intmax;
 	for(int i=0;i<n;i++){
@@ -28,11 +27,8 @@ int knap(int st)
 	for(int i=0;i<n;i++){
 		if(temp[i]){continue;}
 		temp[i]=1;
-		int newcost=m[st][i]+ knap(i);
+		int newcost=m[st][i]+ tsp(i);
 		temp[i]=0;
-		if(mincost>newcost){
-			path[i]=st;
-		}
 		mincost=min(newcost,mincost);
 	}
 	return mincost;
@@ -47,25 +43,25 @@ void getMat(){
     }
 }
 
-void printPath() {
+void printPath(){
     printf("Path: ");
     path[n-1]=1;
     for (int i = 0; i < n; i++) {
         printf("%d-->", path[i]);
     }
-    printf("%d\n\n",path[n-1]);
+    printf("%d\n\n",path[n]);
 }
 
 void printMat(){
     printf("\n  ");
     for(int i=0;i<n;i++){
-        printf("%c ",s);s++;
+        printf(" %c ",s);s++;
     }
-    printf("\n");s=65;
+    printf("\n\n");s=65;
     for(int i=0;i<n;i++){
-        printf("%c ",s);s++;
+        printf("%c  ",s);s++;
         for(int j=0;j<n;j++){
-            printf("%d ",m[i][j]);
+            printf("%d  ",m[i][j]);
         }
         printf("\n\n");
     }
@@ -75,7 +71,7 @@ void printMat(){
 int main(){
     printf("Enter the no of cities:\t");scanf("%d",&n);
     m=malloc(n * sizeof(int *));
-    path=malloc(n * sizeof(int *));
+    path=malloc(n+1 * sizeof(int *));
     temp=malloc((n+1) * sizeof(int));
     for(int i=0;i<n;i++){
             m[i]=malloc(n * sizeof(int));
@@ -83,9 +79,9 @@ int main(){
     }
     getMat();
     printMat();
-    int st=0;temp[st]=1;
-    int mincost=knap(st);
+    int st=0;temp[st]=1;path[n]=1;
+    int mincost=tsp(st);
     printf("Minimum cost:\t%d\n",mincost);
-    printPath();
+    //printPath();
     return 0;
 }
