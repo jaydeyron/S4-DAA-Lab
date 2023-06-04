@@ -6,9 +6,9 @@
 
 #define intmax __INT_MAX__
 
-//global variables                      // Not fully dynamic, uses iteration so does not go through
-int **m,*temp,*path;                    // the right branches of binary tree, only goes through paths
-int n;                                  // in order. Also works only for complete graphs and not for incomplete graphs
+//global variables                      // Not fully dynamic, uses iteration
+int **m,*temp,*path;                    // Also works only for complete graphs and not for incomplete graphs
+int n;                                  
 char s=65;
 
 //functions
