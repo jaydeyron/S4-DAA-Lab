@@ -6,7 +6,7 @@
 
 #define intmax __INT_MAX__
 
-//global variables                      // Not fully dynamic, uses iteration
+//global variables                      // Not fully dynamic, uses iteration, path is not calculated
 int **m,*temp,*path;                    // Also works only for complete graphs and not for incomplete graphs
 int n;                                  
 char s=65;
