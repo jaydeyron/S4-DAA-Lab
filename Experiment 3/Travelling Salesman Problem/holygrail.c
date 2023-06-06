@@ -19,10 +19,6 @@ char s=65;
 int min(int a,int b){   return (a<b)?a:b;}
 int max(int a,int b){   return (a>b)?a:b;}
 
-void copy(int a[],int b[],int n){
-    for(int i=1;i<n;i++){a[i]=b[i];}
-}
-
 void getMat(){
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
