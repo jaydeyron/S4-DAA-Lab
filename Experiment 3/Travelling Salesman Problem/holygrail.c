@@ -47,7 +47,7 @@ void printMat(){
 
 int tsp(int i, int mask){
     if(mask==(1<<n)-1){return m[i][0];}
-    if(memo[i][mask]!=-1){  return memo[mask][i];}
+    if(memo[i][mask]!=-1){  return memo[i][mask];}
     int res=intmax;
     for(int j=0;j<n;j++){
         if(!(mask&(1<<j))){
