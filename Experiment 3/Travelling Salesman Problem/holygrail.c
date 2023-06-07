@@ -11,6 +11,7 @@
 int **m,**memo,*path;
 int n;
 char s=65;
+int flag=0;
 
 //int m[5][5]={{0,2,0,12,5},{2,0,4,8,0},{0,4,0,3,3},{12,8,3,0,10},{5,0,3,10,0}}; 
 //int m[4][4]={{0,10,15,20},{5,0,9,10},{6,13,0,12},{8,8,9,0}};                             
@@ -47,12 +48,14 @@ int tsp(int i, int mask){
     int res=intmax;
     for(int j=0;j<n;j++){
         if(!(mask&(1<<j))){
+        	if(m[i][j]==0){flag=1;break;}
             int cost=m[i][j]+tsp(j,mask | (1<<j));
             if(cost<res){path[mask]=j;  res=cost;}
             //res=min(res,m[i][j]+ tsp(j,mask | (1<<j)));
         }
     }
-    memo[i][mask]=res;
+    if(flag){memo[i][mask]=-1;}
+    else{    memo[i][mask]=res;}
     return res;
 }
 
