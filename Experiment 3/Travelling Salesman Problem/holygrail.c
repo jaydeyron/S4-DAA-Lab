@@ -41,20 +41,19 @@ void printMat(){
     }
 }
 
-int tsp(int i, int mask){
+long long tsp(int i, int mask){
     if(mask==(1<<n)-1){return m[i][0];}
     if(memo[i][mask]!=-1){  return memo[i][mask];}
-    long res=intmax,flag=0;
+    long long res=intmax,flag=0;
     for(int j=0;j<n;j++){
         if(!(mask&(1<<j))){
-        	if(m[i][j]==0){flag=1;break;}
-            int cost=m[i][j]+tsp(j,mask | (1<<j));
+        	if(m[i][j]==0){continue;}
+            long long cost=m[i][j]+tsp(j,mask | (1<<j));
             if(cost<res){path[mask]=j;  res=cost;}
             //res=min(res,m[i][j]+ tsp(j,mask | (1<<j)));
         }
     }
-    if(flag){memo[i][mask]=-1;}
-    else{    memo[i][mask]=res;}
+    memo[i][mask]=res;
     return res;
 }
 
@@ -77,8 +76,8 @@ int main(){
         m[i]=malloc(n * sizeof(int));   memo[i]=malloc((1<<n) * sizeof(int));  memset(memo[i], -1, (1<<n) * sizeof(int));
     }
     getMat();   printMat();
-    int mincost=tsp(0,1);
-    printf("Minimum cost:\t%d\n",mincost);
+    long mincost=tsp(0,1);
+    printf("Minimum cost:\t%ld\n",mincost);
     printPath();
     for(int i=0;i<n;i++){free(m[i]);  free(memo[i]);} free(m);  free(memo); free(path);
     return 0;
