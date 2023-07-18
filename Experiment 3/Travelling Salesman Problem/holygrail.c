@@ -13,7 +13,7 @@ int n;
 char s=65;
 
 //int m[5][5]={{0,2,0,12,5},{2,0,4,8,0},{0,4,0,3,3},{12,8,3,0,10},{5,0,3,10,0}}; 
-//int m[4][4]={{0,10,15,20},{5,0,9,10},{6,13,0,12},{8,8,9,0}};                             
+//int m[4][4]={{0,10,15,20},{5,0,9,10},{6,13,0,12},{8,8,9,0}};                
 
 //functions
 int min(int a,int b){   return (a<b)?a:b;}
@@ -42,7 +42,7 @@ void printMat(){
 }
 
 long long tsp(int i, int mask){
-    if(mask==(1<<n)-1){return m[i][0];}
+    if(mask==(1<<n)-1 && m[i][0]!=0){return m[i][0];}
     if(memo[i][mask]!=-1){  return memo[i][mask];}
     long long res=intmax,flag=0;
     for(int j=0;j<n;j++){
